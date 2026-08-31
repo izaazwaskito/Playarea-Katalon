@@ -23,4 +23,4 @@ EOfficePage EOfficePage = new EOfficePage()
 
 EOfficePage.Login("http://eoffice.bni.co.id/")
 
-EOfficePage.Absensi(2026, 5, "Mei",[])
+EOfficePage.Absensi(2026, 8, "Agustus",[17,25]) //(TAHUN, BULAN KE-, NAMA BULAN, [TANGGAL LIBUR])

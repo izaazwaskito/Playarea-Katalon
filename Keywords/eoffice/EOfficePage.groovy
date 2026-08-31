@@ -78,15 +78,25 @@ public class EOfficePage {
 		return createTestObject("//span[ @aria-activedescendant='ReviewerId2_option_selected']")
 	}
 	
+	private TestObject getButtonSubmitProses() {
+		return createTestObject("//button[@id='btnSubmit']")
+	}
 	
+	private TestObject getTextAreaComment() {
+		return createTestObject("//textarea[@id='CommentText']")
+	}
+	
+	private TestObject getButtonSubmit2() {
+		return createTestObject("//button[@id='btnSubmit2']")
+	}
 	
 	public Login(String URL) {
 		WebUI.openBrowser(URL)
 		WebUI.maximizeWindow()
 		
 		WebUI.waitForElementPresent(inputUsername, 10)
-		WebUI.setText(inputUsername, "901233")
-		WebUI.setText(inputPassword, "Vdsfdatcd432*")
+		WebUI.setText(inputUsername, "901233") //CHANGE USERNAME
+		WebUI.setText(inputPassword, "Vdsfdatcd432*") //CHANGE PASSWORD
 		WebUI.click(buttonLogin)
 		
 		WebUI.waitForElementPresent(buttonAbsensi, 4)
@@ -140,6 +150,14 @@ public class EOfficePage {
 			WebUI.click(buttonReviewer2)
 			WebUI.scrollToElement(SelectTime("SILVESTER KEVIN DEWANGGA K(57874)"), 2)
 			WebUI.click(SelectTime("SILVESTER KEVIN DEWANGGA K(57874)"))
+			
+			WebUI.click(buttonSubmitProses)
+			WebUI.verifyElementVisible(textAreaComment, FailureHandling.STOP_ON_FAILURE)
+			WebUI.setText( textAreaComment, "HADIR")
+			
+			WebUI.click(buttonSubmit2)
+			
+			
 		}
 	}
 }
